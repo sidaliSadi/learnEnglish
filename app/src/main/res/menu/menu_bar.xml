@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/acceuil"
+        android:title="Acceuil"
+        android:icon="@drawable/acceuil"
+        >
+
+    </item>
+
+    <item
+        android:id="@+id/apprendre"
+        android:title="Apprendre"
+        android:icon="@drawable/apprendre"
+        >
+
+    </item>
+
+    <item
+        android:id="@+id/quiz"
+        android:title="Quizz"
+        android:icon="@drawable/quiz"
+        >
+
+    </item>
+
+
+    <item
+        android:id="@+id/lire"
+        android:title="Lire Les actualités en Anglais"
+        android:icon="@drawable/lire"
+        >
+
+    </item>
+
+
+
+
+    <item
+        android:id="@+id/maList"
+        android:title="Ma Liste de Mot"
+        android:icon="@drawable/liste"
+        >
+
+    </item>
+
+
+    <item
+        android:id="@+id/ajout"
+        android:title="Ajoutez une Traduction"
+        android:icon="@drawable/ajout"
+        >
+
+    </item>
+
+    <item
+        android:id="@+id/parametre"
+        android:title="Paramètre"
+        android:icon="@drawable/parametre"
+        >
+    </item>
+
+
+
+
+    <item
+        android:id="@+id/quitter"
+        android:title="Quitter"
+        android:icon="@drawable/quitter"
+        >
+
+    </item>
+
+
+</menu>

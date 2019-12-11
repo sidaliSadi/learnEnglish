@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.projet">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -10,13 +11,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Traduction"></activity>
-        <activity android:name=".Listes"></activity>
-        <activity android:name=".PratiquerActivity" />
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Listes">
+
+        </activity>
+        <activity android:name=".PratiquerActivity"
+            android:label="Testez vous connaissance"
+            />
         <activity android:name=".VocabularyActivity" />
-        <activity android:name=".ApprendreActivity" />
-        <activity android:name=".GestionBD" />
+        <activity
+            android:name=".ApprendreActivity"
+            android:label="Apprentissage"
+            />
+        <activity android:name=".GestionBD"
+            android:label="Ajoutez une Traduction"
+            >
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

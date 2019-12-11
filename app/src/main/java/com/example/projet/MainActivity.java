@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -18,12 +19,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar ;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private Button btnStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        btnStart = findViewById(R.id.start);
         this.configureToolBar();
 
         this.configureDrawerLayout();
@@ -31,6 +33,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.configureNavigationView();
 
     }
+
+    public void startClick (View button){
+        if(button == btnStart){
+            Intent ii = new Intent(this, ApprendreActivity.class);
+            startActivity(ii);
+        }
+    }
+
 
     public void onBackPressed() {
         // 5 - Handle back click to close menu

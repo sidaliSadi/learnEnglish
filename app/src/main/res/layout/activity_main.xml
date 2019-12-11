@@ -14,6 +14,8 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+
         >
 
         <androidx.appcompat.widget.Toolbar
@@ -27,7 +29,50 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <TextView
 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/bad_script"
+            android:text="Apprendre Anglais Facilement  "
+            android:textColor="#990000"
+            android:textSize="30dp"
+            android:textStyle="bold|italic"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/salsa"
+            android:textColor="#10162b"
+            android:text="Si vous cherchez une application pour améliorer votre vocabulaire anglais.
+            Cette application vous aidera à apprendre et pratiquer le vocabulaire anglais avec des moyens simples et efficaces."
+            android:textSize="20dp"
+            android:textStyle="italic"
+
+            />
+
+        <Button
+
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:shadowColor="@color/colorPrimaryDark"
+            android:shadowRadius="25"
+            android:text="Let's GO"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:fontFamily="@font/bad_script"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="170dp"
+            android:onClick="startClick"
+            />
 
 
 

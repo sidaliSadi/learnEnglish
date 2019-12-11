@@ -1,9 +1,12 @@
 package com.example.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,12 +19,15 @@ public class ApprendreActivity extends AppCompatActivity {
     private ListView lv ;
     private String[] listCategorie;
     private DataBaseManager db;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apprendre);
         db = new DataBaseManager(this);
+        toolbar = findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
 
 
         lv = (ListView) findViewById(R.id.listView);
@@ -56,6 +62,26 @@ public class ApprendreActivity extends AppCompatActivity {
         Intent iii = new Intent(this, VocabularyActivity.class);
         iii.putExtra("categorie", s);
         startActivity(iii);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.quitter:
+                finish();
+                break;
+            case R.id.acceuil:
+                Intent i = new Intent(this, MainActivity.class);
+                startActivity(i);
+        }
+        return true;
     }
 
 }

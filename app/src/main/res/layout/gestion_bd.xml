@@ -46,49 +46,65 @@
             android:layout_marginRight="30dp"
             android:textSize="22dp"
             android:inputType="text"/>
-        <EditText
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/categorie"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:textAlignment="center"
-            android:hint="categorie"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:textSize="22dp"
-            android:inputType="text"/>
-        <EditText
-            android:id="@+id/imgWeb"
-            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:layout_margin="15dp"
+            />;
+        <LinearLayout
             android:layout_width="match_parent"
-            android:textAlignment="center"
-            android:hint="Url Image"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:inputType="text"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <CheckBox
+                android:id="@+id/check_externe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="avec/sans" />
 
+            <EditText
+                android:id="@+id/imgWeb"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_margin="15dp"
+                android:hint="Url Image"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <CheckBox
+                android:id="@+id/check_interne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="avec/sans" />
         <Button
             android:id="@+id/btn_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="15dp"
             android:text="choisir image"
-            android:layout_marginTop="30dp"
             />
-
-        <Button
-            android:id="@+id/btn_son"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="choisir son" />
-
+        </LinearLayout>
         <Button
             android:id="@+id/btn_valider"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#009688"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
             android:text="Valider" />
 
-    </LinearLayout>
-
-    /
-
+</LinearLayout>
 </LinearLayout>

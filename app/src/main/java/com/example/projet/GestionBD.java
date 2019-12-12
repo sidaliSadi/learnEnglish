@@ -12,21 +12,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class GestionBD extends AppCompatActivity {
     private DataBaseManager db_manager;
     private Button btn_son, btn_image, btn_valider;
     private EditText e_mot, e_traduction, e_categorie, e_urlImage;
-    private String mot, traduction, categorie,sonPath = "", imagePath = "", urlImage;
+    private String mot, traduction, categorie, imagePath = "", urlImage;
     private Toolbar toolbar;
+    private Spinner spinne;
+    private CheckBox web, local;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +45,24 @@ public class GestionBD extends AppCompatActivity {
 
         /*récuperer les bouttons*/
         btn_image = (Button) findViewById(R.id.btn_img);
-        btn_son = (Button) findViewById(R.id.btn_son);
         btn_valider = (Button) findViewById(R.id.btn_valider);
 
         /*récuperer les edits text*/
         e_mot = (EditText) findViewById(R.id.mot);
         e_traduction = (EditText) findViewById(R.id.traduction);
-        e_categorie = (EditText) findViewById(R.id.categorie);
         e_urlImage = (EditText) findViewById(R.id.imgWeb);
+
+        web = findViewById(R.id.check_externe);
+        local = findViewById(R.id.check_interne);
+
+        //recuperation du spinner
+        spinne = findViewById(R.id.categorie);
+        //recuperer la liste des categories
+        List<String> categorires = db_manager.readCategories();
+
+        //ajouter dans l'adapteur
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categorires);
+        spinne.setAdapter(adapter);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED){
@@ -62,35 +79,52 @@ public class GestionBD extends AppCompatActivity {
                         .start();
             }
         });
-
-        /*ajouuuuuuuuut fichier son*/
-        btn_son.setOnClickListener(new View.OnClickListener(){
+        web.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
-            public void onClick(View v) {
-                new MaterialFilePicker()
-                        .withActivity(GestionBD.this)
-                        .withRequestCode(100)
-                        .withFilter(Pattern.compile(".*\\.mp3$"))
-                        .withHiddenFiles(true) // Show hidden files and folders
-                        .start();
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if ( isChecked ){
+                    urlImage = "default";
+                    Toast.makeText(GestionBD.this, "Un mot sans image externe", Toast.LENGTH_SHORT).show();
+                }else{
+                    urlImage = "";
+                    Toast.makeText(GestionBD.this, "Un mot avec image externe", Toast.LENGTH_SHORT).show();
+                }
+            }}
+        );
+
+        local.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+            if(isChecked){
+                btn_image.setEnabled(false);
+                imagePath = "default";
+                Toast.makeText(GestionBD.this, "Un mot sans image Locale", Toast.LENGTH_SHORT).show();
+
+            }else{
+                btn_image.setEnabled(true);
+                imagePath = "";
+                Toast.makeText(GestionBD.this, "Un mot avec une image locale", Toast.LENGTH_SHORT).show();
             }
-        });
+        }}
+        );
 
         btn_valider.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 mot = e_mot.getText()+"";
                 traduction = e_traduction.getText()+"";
-                categorie = e_categorie.getText()+"";
-                urlImage = e_urlImage.getText()+"";
+                categorie = spinne.getSelectedItem().toString();
+                //maintenant url image
+                if (urlImage == ""){
+                    urlImage = e_urlImage.getText()+"";
+                }
 
-                if ( mot == "" || traduction == "" || categorie == "" || imagePath == "" || sonPath == ""){
-                    db_manager.insert("koko", "roi de la jungle", "animaux", "default","default");
-                    Toast.makeText(GestionBD.this, "Veuillez remplir les champs !", Toast.LENGTH_SHORT).show();
+                if ( mot == "" || traduction == "" || categorie == "" || imagePath == "" || urlImage == ""){
+                    Toast.makeText(GestionBD.this, "imagePath ="+imagePath+" et urlImage = "+urlImage, Toast.LENGTH_SHORT).show();
 
                 }else{
                     //tout est rempli on insert dans la base de données
-                    //db_manager.insert(mot, traduction, categorie, urlImage, imagePath, sonPath);
+                    db_manager.insert(mot, traduction, categorie, urlImage, imagePath);
                     Toast.makeText(GestionBD.this, "Insertion réussie", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -105,11 +139,7 @@ public class GestionBD extends AppCompatActivity {
             imagePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
             Toast.makeText(this, imagePath, Toast.LENGTH_SHORT).show();
         }
-        if (requestCode == 100 && resultCode == RESULT_OK){
-            sonPath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-            //db_manager.insert("koko", "roi de la jungle", "animaux", "default",sonPath,"default");
-            Toast.makeText(this, sonPath, Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     @Override

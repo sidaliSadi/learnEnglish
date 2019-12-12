@@ -78,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent i4 = new Intent(this, GestionBD.class);
                 startActivity(i4);
 
+            case R.id.maList:
+                Intent i5 = new Intent(this,Listes.class);
+                startActivity(i5);
+
             case R.id.quitter:
                 finish();
                 break;

@@ -13,13 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Listes">
+        <activity android:name=".Listes"
+            android:label="Mes Listes"
+            >
 
         </activity>
         <activity android:name=".PratiquerActivity"
             android:label="Testez vous connaissance"
             />
-        <activity android:name=".VocabularyActivity" />
+        <activity android:name=".VocabularyActivity"
+            android:label="Vocabulaire"
+            />
         <activity
             android:name=".ApprendreActivity"
             android:label="Apprentissage"
@@ -28,14 +32,22 @@
             android:label="Ajoutez une Traduction"
             >
         </activity>
-        <activity android:name=".Traduction"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Traduction"
+            android:label="Traduction de votre liste"
+            ></activity>
+        <activity android:name=".MainActivity"
+                android:label="Acceuil"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

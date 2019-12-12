@@ -5,51 +5,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:weightSum="1"
+
     tools:context=".Traduction">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        />
+
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="400dp"
-        android:layout_height="300dp"
-        app:srcCompat="@drawable/bg_clickable"
-        android:layout_margin="20dp"/>
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_margin="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="20dp"
+        app:srcCompat="@drawable/bg_clickable" />
+
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_mot"
-        android:layout_marginTop="20dp"
+        android:layout_centerVertical="true"
+        android:background="#ffffff"
+        android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/haut_parleur" />
 
     <Button
         android:id="@+id/btn_suivant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_mot"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
-        android:text="Suivant" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginBottom="166dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:text="Next"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_precedent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="74dp"
+        android:layout_marginBottom="164dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:text="Back"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/tv_mot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:textSize="20dp"
-        android:text="" />
+        android:layout_marginTop="1dp"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/margarine"
+        android:text=""
+        android:textColor="#990000"
+        android:textSize="25dp"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/btn_externe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="61dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:padding="10dp"
+        android:background="#e5e5ea"
+        android:textColor="#000005"
         android:text="voir image externe" />
 
 

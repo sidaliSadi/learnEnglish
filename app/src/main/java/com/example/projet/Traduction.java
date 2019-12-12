@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
@@ -26,7 +27,7 @@ public class Traduction extends AppCompatActivity {
     private String[] m;
     private ImageButton imgBtn;
     private static ImageView imgView;
-    private Button btnSuivant;
+    private Button btnSuivant, btn_externe;
     private TextToSpeech t1;
     private TextView tv_mot;
     private static int i,j;
@@ -39,6 +40,7 @@ public class Traduction extends AppCompatActivity {
         imgView = findViewById(R.id.imageView);
         btnSuivant = findViewById(R.id.btn_suivant);
         tv_mot = findViewById(R.id.tv_mot);
+        btn_externe = findViewById(R.id.btn_externe);
 
         //recuperer litem
         Intent intent = getIntent();
@@ -115,8 +117,25 @@ public class Traduction extends AppCompatActivity {
 
             }
         });
+        //ouvrir l'image externe dans un navigateur
+        btn_externe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = ll.get(j).getImgWeb();
+                Uri uri = Uri.parse(url);
+                Intent inten = new Intent(Intent.ACTION_VIEW, uri);
+                // Verify that the intent will resolve to an activity
+                if (inten.resolveActivity(getPackageManager()) != null) {
+                    // Here we use an intent without a Chooser unlike the next example
+                    startActivity(inten);
+                }
+            }
+        });
 
         //final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, m);
         //lview.setAdapter(adapter);
+
+
     }
+
 }

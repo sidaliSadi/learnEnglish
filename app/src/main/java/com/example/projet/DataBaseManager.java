@@ -51,10 +51,9 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     }
 
-    public void insert(String mot, String traduction, String categorie, String imgWeb, String imgLocal, String son){
-         String insertSql = "insert into dictionnaire (mot, traduction, categorie, imageWeb, imageLocal, son) values ('" +
-                 mot +"', '"+ traduction +"', '"+ categorie+"', '"+imgWeb+"', '"+imgLocal+"', '"+ son+"'" +
-                 ")";
+    public void insert(String mot, String traduction, String categorie, String imgWeb, String imgLocal){
+         String insertSql = "insert into dictionnaire (mot, traduction, categorie, imageWeb, imageLocal) values ('" +
+                 mot +"', '"+ traduction +"', '"+ categorie+"', '"+imgWeb+"','"+imgLocal+"')";
          this.getWritableDatabase().execSQL(insertSql);
         Log.i("DATABASE" , "insert invoked");
     }

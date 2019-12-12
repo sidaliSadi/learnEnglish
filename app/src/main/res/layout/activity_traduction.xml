@@ -43,5 +43,14 @@
         android:textSize="20dp"
         android:text="" />
 
+    <Button
+        android:id="@+id/btn_externe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="voir image externe" />
+
 
 </RelativeLayout>

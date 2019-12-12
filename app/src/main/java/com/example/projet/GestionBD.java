@@ -85,12 +85,12 @@ public class GestionBD extends AppCompatActivity {
                 urlImage = e_urlImage.getText()+"";
 
                 if ( mot == "" || traduction == "" || categorie == "" || imagePath == "" || sonPath == ""){
-                    //db_manager.insert("koko", "roi de la jungle", "animaux", "default",sonPath,"default");
+                    db_manager.insert("koko", "roi de la jungle", "animaux", "default","default");
                     Toast.makeText(GestionBD.this, "Veuillez remplir les champs !", Toast.LENGTH_SHORT).show();
 
                 }else{
                     //tout est rempli on insert dans la base de données
-                    db_manager.insert(mot, traduction, categorie, urlImage, imagePath, sonPath);
+                    //db_manager.insert(mot, traduction, categorie, urlImage, imagePath, sonPath);
                     Toast.makeText(GestionBD.this, "Insertion réussie", Toast.LENGTH_SHORT).show();
                 }
             }

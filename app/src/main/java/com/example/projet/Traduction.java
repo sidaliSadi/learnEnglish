@@ -1,6 +1,7 @@
 package com.example.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +33,7 @@ public class Traduction extends AppCompatActivity {
     private Button btnSuivant, btn_externe;
     private TextToSpeech t1;
     private TextView tv_mot;
+    private Toolbar toolbar;
     private static int i,j;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,8 @@ public class Traduction extends AppCompatActivity {
         btnSuivant = findViewById(R.id.btn_suivant);
         tv_mot = findViewById(R.id.tv_mot);
         btn_externe = findViewById(R.id.btn_externe);
+        toolbar = findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
 
         //recuperer litem
         Intent intent = getIntent();
@@ -76,7 +82,7 @@ public class Traduction extends AppCompatActivity {
             Traduction.imgView.setImageBitmap(myBitmap);
 
         }
-        tv_mot.setText(ll.get(i).getMot()+" : "+ll.get(i).getTraduction());
+        tv_mot.setText(ll.get(i).getMot()+ " :\n"+ll.get(i).getTraduction());
         i++;
 
         btnSuivant.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +106,7 @@ public class Traduction extends AppCompatActivity {
                         Traduction.imgView.setImageBitmap(myBitmap);
 
                     }
-                     tv_mot.setText(ll.get(i).getMot()+" : "+ll.get(i).getTraduction());
+                     tv_mot.setText(ll.get(i).getMot()+" : \n"+ll.get(i).getTraduction());
                      i++;
                      j++;
 
@@ -138,4 +144,24 @@ public class Traduction extends AppCompatActivity {
 
     }
 
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.quitter:
+                finish();
+                break;
+            case R.id.acceuil:
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
+        }
+        return true;
+    }
 }

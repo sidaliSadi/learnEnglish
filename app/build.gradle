@@ -16,7 +16,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+<<<<<<< HEAD
         debug {
+=======
+
+
+        debug{
+>>>>>>> f18041e58f18e6cb4ff0c18237706dae3d40abac
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

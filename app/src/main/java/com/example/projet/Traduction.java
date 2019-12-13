@@ -12,7 +12,6 @@ import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,7 +41,7 @@ public class Traduction extends AppCompatActivity {
         //lview = findViewById(R.id.lvv);
         imgBtn = findViewById(R.id.imageButton);
         imgView = findViewById(R.id.imageView);
-        btnSuivant = findViewById(R.id.btn_suivant);
+        btnSuivant = findViewById(R.id.btn_partiel);
         tv_mot = findViewById(R.id.tv_mot);
         btn_externe = findViewById(R.id.btn_externe);
         toolbar = findViewById(R.id.toolbar1);

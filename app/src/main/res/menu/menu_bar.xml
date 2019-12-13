@@ -53,6 +53,13 @@
         >
 
     </item>
+    <item
+        android:id="@+id/supprimer"
+        android:title="Supprimer une Traduction"
+        android:icon="@drawable/supprimer"
+        >
+
+    </item>
 
     <item
         android:id="@+id/parametre"

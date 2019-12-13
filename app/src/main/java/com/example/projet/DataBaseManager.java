@@ -1,5 +1,6 @@
 package com.example.projet;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -144,4 +145,32 @@ public class DataBaseManager extends SQLiteOpenHelper {
         cursor.close();
         return mots;
     }
+
+    //Une methode de recherche
+    public List<Mot> Mots(String mot){
+        List<Mot> mots = new ArrayList<>();
+        String sql = "SELECT * FROM dictionnaire where mot= "+"?";
+        Cursor cursor = this.getReadableDatabase().rawQuery(sql, new String[]{mot});
+        cursor.moveToFirst();
+        while (! cursor.isAfterLast()){
+            Mot m = new Mot(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),cursor.getString(5));
+            mots.add(m);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return mots;
+    }
+
+    //supprimer une traduction
+    public boolean supprimerTraduction(String m){
+        return this.getWritableDatabase().delete("dictionnaire", "mot"+"=+?", new String[]{m}) > 0;
+    }
+
+    //modifier une ligne
+    public boolean supprimerImage(String m){
+         ContentValues cv = new ContentValues();
+         cv.put("imageLocal", "default");
+        return this.getWritableDatabase().update("dictionnaire",cv,"mot=?",new String[]{m}) > 0;
+     }
+
 }

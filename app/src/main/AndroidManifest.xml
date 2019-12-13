@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-<<<<<<< HEAD
-
-        <activity android:name=".Listes" />
+        <activity android:name=".SuppressionActivity"></activity>
         <activity
             android:name=".PratiquerActivity"
             android:label="Testez vous connaissance" />
@@ -28,39 +26,15 @@
             android:label="Ajoutez une Traduction" />
         <activity android:name=".Traduction" />
         <activity android:name=".MainActivity">
-=======
-        <activity android:name=".Listes"
-            android:label="Mes Listes"
-            >
-
-        </activity>
-        <activity android:name=".PratiquerActivity"
-            android:label="Testez vous connaissance"
-            />
-        <activity android:name=".VocabularyActivity"
-            android:label="Vocabulaire"
-            />
-        <activity
-            android:name=".ApprendreActivity"
-            android:label="Apprentissage"
-            />
-        <activity android:name=".GestionBD"
-            android:label="Ajoutez une Traduction"
-            >
-        </activity>
-        <activity android:name=".Traduction"
-            android:label="Traduction de votre liste"
-            ></activity>
-        <activity android:name=".MainActivity"
-                android:label="Acceuil"
-            >
->>>>>>> f18041e58f18e6cb4ff0c18237706dae3d40abac
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Listes"
+            android:label="Mes Listes"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

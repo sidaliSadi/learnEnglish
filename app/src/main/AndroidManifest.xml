@@ -13,22 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Listes">
 
-        </activity>
-        <activity android:name=".PratiquerActivity"
-            android:label="Testez vous connaissance"
-            />
+        <activity android:name=".Listes" />
+        <activity
+            android:name=".PratiquerActivity"
+            android:label="Testez vous connaissance" />
         <activity android:name=".VocabularyActivity" />
         <activity
             android:name=".ApprendreActivity"
-            android:label="Apprentissage"
-            />
-        <activity android:name=".GestionBD"
-            android:label="Ajoutez une Traduction"
-            >
-        </activity>
-        <activity android:name=".Traduction"></activity>
+            android:label="Apprentissage" />
+        <activity
+            android:name=".GestionBD"
+            android:label="Ajoutez une Traduction" />
+        <activity android:name=".Traduction" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -2,4 +2,11 @@
     <string name="app_name">Acceuil</string>
     <string name="open">open</string>
     <string name="close">close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_gestion_bdd">GestionBdd</string>
+    <string name="tab_text_1">Ajout</string>
+    <string name="tab_text_2">Suppression</string>
+    <string name="title_activity_aloo">Aloo</string>
 </resources>

@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
 import android.content.Intent;
@@ -20,13 +22,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class GestionBD extends AppCompatActivity {
+
     private DataBaseManager db_manager;
     private Button btn_son, btn_image, btn_valider;
     private EditText e_mot, e_traduction, e_categorie, e_urlImage;
@@ -68,7 +71,7 @@ public class GestionBD extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED){
             requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
         }
-
+/**************************************************************************************************/
         btn_image.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -93,19 +96,19 @@ public class GestionBD extends AppCompatActivity {
         );
 
         local.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-            if(isChecked){
-                btn_image.setEnabled(false);
-                imagePath = "default";
-                Toast.makeText(GestionBD.this, "Un mot sans image Locale", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if(isChecked){
+                    btn_image.setEnabled(false);
+                    imagePath = "default";
+                    Toast.makeText(GestionBD.this, "Un mot sans image Locale", Toast.LENGTH_SHORT).show();
 
-            }else{
-                btn_image.setEnabled(true);
-                imagePath = "";
-                Toast.makeText(GestionBD.this, "Un mot avec une image locale", Toast.LENGTH_SHORT).show();
-            }
-        }}
+                }else{
+                    btn_image.setEnabled(true);
+                    imagePath = "";
+                    Toast.makeText(GestionBD.this, "Un mot avec une image locale", Toast.LENGTH_SHORT).show();
+                }
+            }}
         );
 
         btn_valider.setOnClickListener(new View.OnClickListener(){

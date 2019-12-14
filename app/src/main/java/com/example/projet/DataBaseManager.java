@@ -162,8 +162,10 @@ public class DataBaseManager extends SQLiteOpenHelper {
     }
 
     //supprimer une traduction
-    public boolean supprimerTraduction(String m){
-        return this.getWritableDatabase().delete("dictionnaire", "mot"+"=+?", new String[]{m}) > 0;
+    public boolean supprimerTraduction(String m, int identifiant){
+         //on test si le mot se retrouve dans la table liste
+        this.getWritableDatabase().delete("liste","id_mot="+identifiant,null);
+         return this.getWritableDatabase().delete("dictionnaire", "mot"+"=+?", new String[]{m}) > 0;
     }
 
     //modifier une ligne
@@ -172,5 +174,10 @@ public class DataBaseManager extends SQLiteOpenHelper {
          cv.put("imageLocal", "default");
         return this.getWritableDatabase().update("dictionnaire",cv,"mot=?",new String[]{m}) > 0;
      }
+
+    //supprimer une liste
+    public boolean supprimerListe(String m){
+        return this.getWritableDatabase().delete("liste", "nom_list"+"=+?", new String[]{m}) > 0;
+    }
 
 }

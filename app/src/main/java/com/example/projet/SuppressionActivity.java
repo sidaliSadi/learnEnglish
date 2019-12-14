@@ -101,7 +101,7 @@ public class SuppressionActivity extends AppCompatActivity {
                         Toast.makeText(SuppressionActivity.this, "fichier supprimé", Toast.LENGTH_SHORT).show();
                     }
                 }
-                boolean b = db.supprimerTraduction(m);
+                boolean b = db.supprimerTraduction(m, liste.get(0).getId());
                 if ( b ){
                     Toast.makeText(SuppressionActivity.this, "Suppression traduction reussie", Toast.LENGTH_SHORT).show();
                     btn_suppComplet.setEnabled(false);

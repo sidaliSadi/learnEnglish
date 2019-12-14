@@ -49,24 +49,11 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
-        android:layout_marginRight="75dp"
+        android:layout_marginRight="14dp"
         android:layout_marginBottom="166dp"
         android:background="@color/colorPrimary"
-        android:textColor="#ffffff"
         android:text="Next"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/btn_complet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="74dp"
-        android:layout_marginBottom="164dp"
-        android:background="@color/colorPrimary"
         android:textColor="#ffffff"
-        android:text="Back"
         android:textSize="20dp" />
 
     <TextView

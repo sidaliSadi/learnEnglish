@@ -90,8 +90,7 @@ public class Traduction extends AppCompatActivity {
                 //on a parcouru toute notre liste
                  if (i == taille){
                     Toast.makeText(Traduction.this, "La liste est terminée", Toast.LENGTH_SHORT).show();
-                    btnSuivant.setEnabled(true);
-                    j = 0;
+                    btnSuivant.setEnabled(false);
                     i = 0;
                 }else{
 
@@ -136,11 +135,6 @@ public class Traduction extends AppCompatActivity {
                 }
             }
         });
-
-        //final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, m);
-        //lview.setAdapter(adapter);
-
-
     }
 
 

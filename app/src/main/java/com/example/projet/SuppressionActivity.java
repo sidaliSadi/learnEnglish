@@ -37,7 +37,7 @@ public class SuppressionActivity extends AppCompatActivity {
         e_mot = findViewById(R.id.recherche);
         db = new DataBaseManager(this);
         tv = findViewById(R.id.tv_mot);
-        imgView = findViewById(R.id.imageView2);
+        imgView = findViewById(R.id.imgVieww);
         tv_externe = findViewById(R.id.lienExterne);
 
         btn_supPartiel.setEnabled(false);

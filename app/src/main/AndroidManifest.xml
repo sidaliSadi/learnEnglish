@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SuppressionActivity"></activity>
+        <activity android:name=".Recherche"></activity>
+        <activity android:name=".SuppressionActivity" />
         <activity
             android:name=".PratiquerActivity"
             android:label="Testez vous connaissance" />
@@ -34,7 +35,7 @@
         </activity>
         <activity
             android:name=".Listes"
-            android:label="Mes Listes"></activity>
+            android:label="Mes Listes" />
 
         <meta-data
             android:name="preloaded_fonts"

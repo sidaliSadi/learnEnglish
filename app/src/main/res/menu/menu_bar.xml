@@ -11,7 +11,7 @@
 
     <item
         android:id="@+id/apprendre"
-        android:title="Apprendre"
+        android:title="Apprendre (par catégorie)"
         android:icon="@drawable/apprendre"
         >
 
@@ -62,8 +62,8 @@
     </item>
 
     <item
-        android:id="@+id/parametre"
-        android:title="Paramètre"
+        android:id="@+id/recherche"
+        android:title="Recherche (mot)"
         android:icon="@drawable/parametre"
         >
     </item>

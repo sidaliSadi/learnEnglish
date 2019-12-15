@@ -1,6 +1,7 @@
 package com.example.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -30,10 +31,16 @@ public class Recherche extends AppCompatActivity {
     private List<Mot> liste;
     private ImageButton imgBtn;
     private TextToSpeech t1;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recherche);
+
+        toolbar = findViewById(R.id.toolbar1);
+        toolbar.setTitle("Recherche d'un mot");
+        setSupportActionBar(toolbar);
+
 
         btn_recherche = findViewById(R.id.btn_recherche);
         imgBtn = findViewById(R.id.imageButton);

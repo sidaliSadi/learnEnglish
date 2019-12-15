@@ -2,23 +2,45 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
     <item
         android:id="@+id/acceuil"
         android:title="Acceuil"
         android:icon="@drawable/acceuil"
+        app:showAsAction="never"
+        >
+
+    </item>
+
+
+
+    <item
+        android:id="@+id/maList"
+        android:title="Accéder à vos listes"
+        android:icon="@drawable/liste"
+        app:showAsAction="never"
+        >
+
+    </item>
+
+
+    <item
+        android:id="@+id/quitter"
+        android:title="Quitter"
+        android:icon="@drawable/quitter"
         app:showAsAction="ifRoom"
         >
 
     </item>
 
     <item
-        android:id="@+id/quitter"
-        android:title="Quitter"
-        android:icon="@drawable/quitter"
-        app:showAsAction="never"
+        android:id="@+id/recherche"
+        android:title="Recherche"
+        android:icon="@drawable/recherche"
+        app:showAsAction="ifRoom"
         >
 
     </item>
-
 
 </menu>

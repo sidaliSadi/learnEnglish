@@ -1,6 +1,7 @@
 package com.example.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -26,6 +27,7 @@ public class SuppressionActivity extends AppCompatActivity {
     private EditText e_mot;
     private DataBaseManager db;
     private ImageView imgView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +42,11 @@ public class SuppressionActivity extends AppCompatActivity {
         imgView = findViewById(R.id.imgVieww);
         tv_externe = findViewById(R.id.lienExterne);
 
+        toolbar = findViewById(R.id.toolbar1);
+        toolbar.setTitle("Supprimer Une Traduction");
+        setSupportActionBar(toolbar);
         btn_supPartiel.setEnabled(false);
         btn_suppComplet.setEnabled((false));
-        btn_suppComplet.setBackgroundColor(Color.RED);
-        btn_supPartiel.setBackgroundColor(Color.RED);
 
         //si je click sur le btn recherche
         btn_recherche.setOnClickListener(new View.OnClickListener() {

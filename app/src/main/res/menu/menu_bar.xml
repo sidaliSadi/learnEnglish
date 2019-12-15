@@ -11,7 +11,7 @@
 
     <item
         android:id="@+id/apprendre"
-        android:title="Apprendre (par catégorie)"
+        android:title="Apprendre "
         android:icon="@drawable/apprendre"
         >
 
@@ -24,16 +24,6 @@
         >
 
     </item>
-
-
-    <item
-        android:id="@+id/lire"
-        android:title="Lire Les actualités en Anglais"
-        android:icon="@drawable/lire"
-        >
-
-    </item>
-
 
 
 
@@ -63,9 +53,18 @@
 
     <item
         android:id="@+id/recherche"
-        android:title="Recherche (mot)"
-        android:icon="@drawable/parametre"
+        android:title="Rechercher un mot "
+        android:icon="@drawable/recherche"
         >
+    </item>
+
+
+    <item
+        android:id="@+id/lire"
+        android:title="Lire Les actualités en Anglais"
+        android:icon="@drawable/lire"
+        >
+
     </item>
 
 

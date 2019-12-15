@@ -1,10 +1,13 @@
 package com.example.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,8 +24,9 @@ public class VocabularyActivity extends AppCompatActivity {
     private ListView listeView;
     private Mot[] mots;
     private DataBaseManager db;
-    private Button btn_creer, btn_liste;
+    private Button btn_creer;
     private EditText enom;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +35,11 @@ public class VocabularyActivity extends AppCompatActivity {
         listeView = findViewById(R.id.lView);
         btn_creer = findViewById(R.id.btn_creer);
         enom = findViewById(R.id.list_name);
-        btn_liste = findViewById(R.id.btn_listes);
+        toolbar = findViewById(R.id.toolbar1);
+        toolbar.setTitle("Mot à apprendre");
+        setSupportActionBar(toolbar);
 
-        btn_liste.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(VocabularyActivity.this, Listes.class);
-                startActivity(in);
-            }
-        });
+
         btn_creer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -87,6 +87,38 @@ public class VocabularyActivity extends AppCompatActivity {
         final ArrayAdapter<Mot> adapter = new ArrayAdapter<Mot>(this, android.R.layout.simple_list_item_checked, mots);
         listeView.setAdapter(adapter);
     }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.quitter:
+                finish();
+                break;
+            case R.id.acceuil:
+                Intent i = new Intent(this, MainActivity.class);
+                startActivity(i);
+
+            case R.id.maList:
+                Intent i1 = new Intent(this,Listes.class);
+                startActivity(i1);
+                break;
+            case R.id.recherche:
+                Intent i2 = new Intent(this,Recherche.class);
+                startActivity(i2);
+                break;
+        }
+        return true;
+    }
+
 
 
 }

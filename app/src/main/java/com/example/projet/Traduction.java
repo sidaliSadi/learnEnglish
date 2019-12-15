@@ -154,6 +154,15 @@ public class Traduction extends AppCompatActivity {
             case R.id.acceuil:
                 Intent i = new Intent(this,MainActivity.class);
                 startActivity(i);
+
+            case R.id.maList:
+                Intent i1 = new Intent(this,Listes.class);
+                startActivity(i1);
+                break;
+            case R.id.recherche:
+                Intent i2 = new Intent(this,Recherche.class);
+                startActivity(i2);
+                break;
         }
         return true;
     }

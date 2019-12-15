@@ -3,26 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:weightSum="1"
     tools:context=".MainActivity">
 
 
-    <ListView
-        android:id="@+id/lView"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="#06282b">
+        android:layout_marginTop="10dp"
+        android:text="Sélectionner et Crée la liste des mots à apprendre :"
+        android:textColor="#990000"
+        android:textAlignment="center"
+        android:fontFamily="@font/bad_script"
+        android:textStyle="bold|italic"
+        android:textSize="25dp"
+        />
 
-    </ListView>
 
     <EditText
         android:id="@+id/list_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nom liste"
+        android:layout_marginTop="20dp"
+        android:hint="Donnez un nom à votre liste"
         android:inputType="text"
         android:paddingLeft="22dp"
         android:textSize="22dp" />
@@ -31,13 +46,32 @@
         android:id="@+id/btn_creer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="creer la liste" />
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:text="créer la liste" />
 
-    <Button
-        android:id="@+id/btn_listes"
+
+    <ListView
+        android:id="@+id/lView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="mesListes" />
+        android:divider="#06282b"
+        android:alwaysDrawnWithCache="true"
+        android:dividerHeight="1dp"
+        android:horizontalSpacing="3dp"
+        android:scrollingCache="true"
+        android:smoothScrollbar="true"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="3dp"
+        android:layout_marginBottom="30dp"
+        >
+
+    </ListView>
+
+
 
 
 </LinearLayout>

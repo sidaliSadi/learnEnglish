@@ -50,6 +50,7 @@ public class Recherche extends AppCompatActivity {
         tv = findViewById(R.id.tv_mot);
         img = findViewById(R.id.imgVieww);
         btn_externe = findViewById(R.id.btn_externe);
+
         btn_recherche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,13 +106,17 @@ public class Recherche extends AppCompatActivity {
         btn_externe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = liste.get(0).getImgWeb();
-                Uri uri = Uri.parse(url);
-                Intent inten = new Intent(Intent.ACTION_VIEW, uri);
-                // Verify that the intent will resolve to an activity
-                if (inten.resolveActivity(getPackageManager()) != null) {
-                    // Here we use an intent without a Chooser unlike the next example
-                    startActivity(inten);
+                if (liste.get(0).getImgWeb().equals("default")) {
+                    Toast.makeText(Recherche.this, "Pas d'image externe", Toast.LENGTH_SHORT).show();
+                } else {
+                    String url = liste.get(0).getImgWeb();
+                    Uri uri = Uri.parse(url);
+                    Intent inten = new Intent(Intent.ACTION_VIEW, uri);
+                    // Verify that the intent will resolve to an activity
+                    if (inten.resolveActivity(getPackageManager()) != null) {
+                        // Here we use an intent without a Chooser unlike the next example
+                        startActivity(inten);
+                    }
                 }
             }
         });

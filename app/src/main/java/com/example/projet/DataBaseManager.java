@@ -180,4 +180,30 @@ public class DataBaseManager extends SQLiteOpenHelper {
         return this.getWritableDatabase().delete("liste", "nom_list"+"=+?", new String[]{m}) > 0;
     }
 
+    //au hasard Question quiz
+    public Mot quizQuestion(String c){
+        Mot m ;
+        String sql = "SELECT * FROM dictionnaire where categorie = "+"?"+"order by random() limit 1";
+        Cursor cursor = this.getReadableDatabase().rawQuery(sql, new String[]{c});
+        cursor.moveToFirst();
+        m = new Mot(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),cursor.getString(5));
+        cursor.close();
+        return m;
+    }
+
+    //Une methode de recherche
+    public List<String> quizOptions(String c){
+        List<String> mots = new ArrayList<>();
+        String sql = "SELECT traduction FROM dictionnaire where categorie = "+"?"+"order by random() limit 3";
+        Cursor cursor = this.getReadableDatabase().rawQuery(sql, new String[]{c});
+        cursor.moveToFirst();
+        while (! cursor.isAfterLast()){
+             mots.add(cursor.getString(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return mots;
+    }
+
+
 }

@@ -15,9 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -29,7 +34,11 @@ public class QuizActivity extends AppCompatActivity {
     private DataBaseManager db;
     private Button btnSuivant;
     private static ImageView imgView;
-    private static int i,j;
+    private TextView qst;
+    private RadioGroup rg;
+    private RadioButton rb_selected, reponse1, reponse2, reponse3, reponse4;
+    private int score = 0, nbrRepition = 4;
+    private String c;
 
 
     @Override
@@ -37,18 +46,89 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        lv = findViewById(R.id.listView);
         btnSuivant = findViewById(R.id.btnSuivant);
         imgView = findViewById(R.id.imageView);
+        rg = findViewById(R.id.radioGroup);
+        qst = findViewById(R.id.question);
 
         toolbar = findViewById(R.id.toolbar1);
         toolbar.setTitle("QUIZZ");
         setSupportActionBar(toolbar);
+        /******************************************************************************/
+
+        Intent i = getIntent();
+        c = i.getStringExtra("categorie");
+
+        reponse1 = findViewById(R.id.reponse1);
+        reponse2 = findViewById(R.id.reponse2);
+        reponse3 = findViewById(R.id.reponse3);
+        reponse4 = findViewById(R.id.reponse4);
+        db = new DataBaseManager(QuizActivity.this);
+
+        nextTurn();
 
 
 
 
     }
+
+    public void nextTurn(){
+
+
+
+        final Mot m = db.quizQuestion(c);
+        List<String> options = new ArrayList<String>();
+        options =  db.quizOptions(c);
+        options.add(m.getTraduction());
+
+        if ( m.getImgLocal().equals("default") ){
+            //affichage idu mot
+            qst.setText(m.getMot()+" == ..........");
+        }else {
+            qst.setText("");
+            File imgFile = new File(m.getImgLocal());
+
+            if (imgFile.exists()) {
+
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+
+               imgView.setImageBitmap(myBitmap);
+            }else{
+                Toast.makeText(this, m.getMot(), Toast.LENGTH_SHORT).show();
+            }
+
+
+
+
+        }
+        Collections.shuffle(options);
+        reponse1.setText(options.get(0));
+        reponse2.setText(options.get(1));
+        reponse3.setText(options.get(2));
+        reponse4.setText(options.get(3));
+        btnSuivant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int rbId = rg.getCheckedRadioButtonId();
+                rb_selected = findViewById(rbId);
+
+                if ( nbrRepition == 0 ){
+                    if ( m.getTraduction().equals(rb_selected.getText()) ){
+                        score = score + 1;
+                    }
+                    Toast.makeText(QuizActivity.this, "Score est "+score, Toast.LENGTH_SHORT).show();
+                    btnSuivant.setEnabled(false);
+                }else{
+                    nbrRepition--;
+                    if ( m.getTraduction().equals(rb_selected.getText()) ){
+                        score = score + 1;
+                    }
+                    nextTurn();
+                }
+            }
+        });
+    }
+
 
 
 

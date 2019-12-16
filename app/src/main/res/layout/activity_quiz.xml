@@ -39,13 +39,52 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="80dp"
         android:padding="15dp"
         android:background="@color/colorPrimary"
         android:text="Suivant"
         android:textColor="#ffffff"
         android:textSize="20dp" />
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textColor="#990000"
+        android:textSize="25dp" />
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/question">
 
+        <RadioButton
+            android:id="@+id/reponse1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <RadioButton
+            android:id="@+id/reponse2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <RadioButton
+            android:id="@+id/reponse3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <RadioButton
+            android:id="@+id/reponse4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </RadioGroup>
 
 
 

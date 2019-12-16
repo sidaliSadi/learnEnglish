@@ -72,14 +72,20 @@ public class Traduction extends AppCompatActivity {
             }
         });
 
-        File imgFile = new  File(ll.get(i).getImgLocal());
+        if ( ll.get(0).getImgLocal().equals("default") ){
+            //affichage image par defaut
+            Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.defaut);
+            imgView.setImageBitmap(myBitmap);
+        }else {
+            File imgFile = new File(ll.get(i).getImgLocal());
 
-        if(imgFile.exists()) {
+            if (imgFile.exists()) {
 
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
 
-            Traduction.imgView.setImageBitmap(myBitmap);
+                Traduction.imgView.setImageBitmap(myBitmap);
 
+            }
         }
         tv_mot.setText(ll.get(i).getMot()+ " :\n"+ll.get(i).getTraduction());
         i++;
@@ -93,17 +99,23 @@ public class Traduction extends AppCompatActivity {
                     btnSuivant.setEnabled(false);
                     i = 0;
                 }else{
+                     if ( ll.get(i).getImgLocal().equals("default") ){
+                         //affichage image par defaut
+                         Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.defaut);
+                         imgView.setImageBitmap(myBitmap);
+                     }else {
 
-                    File imgFile = new  File(ll.get(i).getImgLocal());
+                         File imgFile = new File(ll.get(i).getImgLocal());
 
-                    //ajouter l'image
-                    if(imgFile.exists()) {
+                         //ajouter l'image
+                         if (imgFile.exists()) {
 
-                        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
 
-                        Traduction.imgView.setImageBitmap(myBitmap);
+                             Traduction.imgView.setImageBitmap(myBitmap);
 
-                    }
+                         }
+                     }
                      tv_mot.setText(ll.get(i).getMot()+" : \n"+ll.get(i).getTraduction());
                      i++;
                      j++;
@@ -125,13 +137,17 @@ public class Traduction extends AppCompatActivity {
         btn_externe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = ll.get(j).getImgWeb();
-                Uri uri = Uri.parse(url);
-                Intent inten = new Intent(Intent.ACTION_VIEW, uri);
-                // Verify that the intent will resolve to an activity
-                if (inten.resolveActivity(getPackageManager()) != null) {
-                    // Here we use an intent without a Chooser unlike the next example
-                    startActivity(inten);
+                if (ll.get(j).getImgWeb().equals("default")) {
+                    Toast.makeText(Traduction.this, "Pas d'image externe", Toast.LENGTH_SHORT).show();
+                } else {
+                    String url = ll.get(j).getImgWeb();
+                    Uri uri = Uri.parse(url);
+                    Intent inten = new Intent(Intent.ACTION_VIEW, uri);
+                    // Verify that the intent will resolve to an activity
+                    if (inten.resolveActivity(getPackageManager()) != null) {
+                        // Here we use an intent without a Chooser unlike the next example
+                        startActivity(inten);
+                    }
                 }
             }
         });

@@ -19,16 +19,10 @@
         </activity>
         <activity android:name=".Recherche" />
         <activity android:name=".SuppressionActivity" />
-        <activity
-            android:name=".PratiquerActivity"
-            android:label="Testez vous connaissance" />
+        <activity android:name=".PratiquerActivity" />
         <activity android:name=".VocabularyActivity" />
-        <activity
-            android:name=".ApprendreActivity"
-            android:label="Apprentissage" />
-        <activity
-            android:name=".GestionBD"
-            android:label="Ajoutez une Traduction" />
+        <activity android:name=".ApprendreActivity" />
+        <activity android:name=".GestionBD" />
         <activity android:name=".Traduction" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -37,9 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Listes"
-            android:label="Mes Listes" />
+        <activity android:name=".Listes" />
 
         <meta-data
             android:name="preloaded_fonts"

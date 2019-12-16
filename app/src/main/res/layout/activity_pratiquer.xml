@@ -22,21 +22,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Choisi une Categorie :"
+        android:text="Choisi une Categorie Pour
+                    Commencer le Quizz :"
         android:textColor="#990000"
         android:textAlignment="center"
         android:fontFamily="@font/bad_script"
         android:textStyle="bold|italic"
-        android:textSize="30sp"
+        android:textSize="25sp"
         />
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:divider="#06282b"
-        android:dividerHeight="3dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="60dp"
         >
     </ListView>
 

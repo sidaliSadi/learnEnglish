@@ -12,14 +12,16 @@
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:elevation="4dp"
+        android:elevation="10dp"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+
+        />
 
     <ListView
         android:id="@+id/lView"
@@ -27,7 +29,7 @@
         android:layout_height="wrap_content"
         android:divider="#06282b"
         android:alwaysDrawnWithCache="true"
-        android:dividerHeight="1dp"
+        android:dividerHeight="3dp"
         android:horizontalSpacing="3dp"
         android:scrollingCache="true"
         android:smoothScrollbar="true"

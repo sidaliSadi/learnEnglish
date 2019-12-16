@@ -54,9 +54,10 @@
         android:layout_centerHorizontal="true"
         android:text=""
         android:textColor="#990000"
-        android:textSize="25dp" />
+        android:textSize="20dp" />
     <RadioGroup
         android:id="@+id/radioGroup"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/question">
@@ -65,24 +66,40 @@
             android:id="@+id/reponse1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="@font/salsa"
+            android:textSize="20dp"
+            android:textColor="#030B4D"
             android:text="" />
 
         <RadioButton
             android:id="@+id/reponse2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="@font/salsa"
+            android:textSize="20dp"
+            android:textColor="#030B4D"
             android:text="" />
 
         <RadioButton
             android:id="@+id/reponse3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="@font/salsa"
+            android:textSize="20dp"
+            android:textColor="#030B4D"
             android:text="" />
 
         <RadioButton
             android:id="@+id/reponse4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="@font/salsa"
+            android:textColor="#030B4D"
+            android:textSize="20dp"
             android:text="" />
     </RadioGroup>
 

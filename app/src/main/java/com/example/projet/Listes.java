@@ -34,6 +34,7 @@ private Toolbar toolbar;
         lview = findViewById(R.id.lView);
         tv = findViewById(R.id.tv);
         toolbar = findViewById(R.id.toolbar1);
+        toolbar.setTitle("Mes Listes ");
         setSupportActionBar(toolbar);
         db = new DataBaseManager(this);
 

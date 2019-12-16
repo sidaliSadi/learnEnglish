@@ -3,6 +3,7 @@ package com.example.projet;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,7 +38,8 @@ public class QuizActivity extends AppCompatActivity {
     private TextView qst;
     private RadioGroup rg;
     private RadioButton rb_selected, reponse1, reponse2, reponse3, reponse4;
-    private int score = 0, nbrRepition = 4;
+    public static int score = 0;
+    private int  nbrRepition = 4;
     private String c;
 
 
@@ -54,6 +56,7 @@ public class QuizActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar1);
         toolbar.setTitle("QUIZZ");
         setSupportActionBar(toolbar);
+
         /******************************************************************************/
 
         Intent i = getIntent();
@@ -116,7 +119,8 @@ public class QuizActivity extends AppCompatActivity {
                     if ( m.getTraduction().equals(rb_selected.getText()) ){
                         score = score + 1;
                     }
-                    Toast.makeText(QuizActivity.this, "Score est "+score, Toast.LENGTH_SHORT).show();
+                    openDialog();
+                    //Toast.makeText(QuizActivity.this, "Score est "+score, Toast.LENGTH_SHORT).show();
                     btnSuivant.setEnabled(false);
                 }else{
                     nbrRepition--;
@@ -130,7 +134,11 @@ public class QuizActivity extends AppCompatActivity {
     }
 
 
+    public void openDialog(){
+        DialogTest d = new DialogTest();
+        d.show(getSupportFragmentManager(),"test Dialog");
 
+    }
 
 
 

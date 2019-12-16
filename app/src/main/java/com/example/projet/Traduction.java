@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -37,6 +38,7 @@ public class Traduction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_traduction);
         //lview = findViewById(R.id.lvv);
         imgBtn = findViewById(R.id.imageButton);
@@ -45,6 +47,7 @@ public class Traduction extends AppCompatActivity {
         tv_mot = findViewById(R.id.tv_mot);
         btn_externe = findViewById(R.id.btn_externe);
         toolbar = findViewById(R.id.toolbar1);
+        toolbar.setTitle("La Traduction des mots");
         setSupportActionBar(toolbar);
 
         //recuperer litem

@@ -28,7 +28,8 @@ public class ApprendreActivity extends AppCompatActivity {
     private String[] listCategorie;
     private DataBaseManager db;
     private Toolbar toolbar;
-    int images[] = {R.drawable.animaux, R.drawable.fruitetlegume, R.drawable.ordinateur, R.drawable.internet, R.drawable.informatique,R.drawable.famille};
+    private  int images[] = {R.drawable.animaux, R.drawable.fruitetlegume, R.drawable.ordinateur,
+            R.drawable.internet, R.drawable.informatique,R.drawable.famille};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class ApprendreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_apprendre);
         db = new DataBaseManager(this);
         toolbar = findViewById(R.id.toolbar1);
+        toolbar.setTitle("Apprentissage");
         setSupportActionBar(toolbar);
 
 

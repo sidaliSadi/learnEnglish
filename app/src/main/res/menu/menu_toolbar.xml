@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/maList"
-        android:title="Accéder à vos listes"
+        android:title="Mes Listes "
         android:icon="@drawable/liste"
         app:showAsAction="never"
         >

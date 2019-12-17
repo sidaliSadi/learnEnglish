@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Dicte"></activity>
-        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".Quiz2"></activity>
+        <activity android:name=".Dicte" />
+        <activity android:name=".QuizActivity" />
         <activity android:name=".Recherche" />
         <activity android:name=".SuppressionActivity" />
         <activity android:name=".PratiquerActivity" />

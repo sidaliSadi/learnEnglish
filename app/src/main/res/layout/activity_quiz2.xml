@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <Spinner
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/categorie"
+    android:textAlignment="center"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp"
+    android:layout_margin="15dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/reponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="reponse...."
+            android:inputType="textPersonName"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/tvllll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#990000"
+            android:textSize="20dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+        <Button
+            android:id="@+id/btnVoirReponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voir reponse" />
+        <TextView
+            android:id="@+id/tvvv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#990000"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/btnRegenerer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regenerer"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        >
+        <Button
+            android:id="@+id/btnVerifier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verifier" />
+    </LinearLayout>
+
+</LinearLayout>

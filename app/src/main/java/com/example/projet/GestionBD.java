@@ -128,9 +128,13 @@ public class GestionBD extends AppCompatActivity {
                     Toast.makeText(GestionBD.this, "imagePath ="+imagePath+" et urlImage = "+urlImage, Toast.LENGTH_SHORT).show();
 
                 }else{
-                    //tout est rempli on insert dans la base de données
-                    db_manager.insert(mot, traduction, categorie, urlImage, imagePath);
-                    Toast.makeText(GestionBD.this, "Insertion réussie", Toast.LENGTH_SHORT).show();
+                    if ( db_manager.exist(mot) ){
+                        //tout est rempli on insert dans la base de données
+                        db_manager.insert(mot, traduction, categorie, urlImage, imagePath);
+                        Toast.makeText(GestionBD.this, "Insertion réussie", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(GestionBD.this, "Mot existe deja !", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

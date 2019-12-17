@@ -113,6 +113,20 @@ public class DataBaseManager extends SQLiteOpenHelper {
          }
     }
 
+    //verifier si le mot existe deja dans la bd
+    public boolean exist(String m){
+        String sql = "Select * from dictionnaire where mot= "+"?";
+        String p[] = {m};
+        Cursor c = this.getReadableDatabase().rawQuery(sql, p);
+        c.moveToFirst();
+        if ( c.isAfterLast() ){
+            //cette categorie ne contient pas encore une liste
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     //selectionner les listes que l'utilisateur à construit
     public List<String> readListes(){
         List<String> listes = new ArrayList<>();
@@ -230,5 +244,17 @@ public class DataBaseManager extends SQLiteOpenHelper {
         cursor.close();
         return m;
     }
+
+    //au hasard Question quiz2
+    public Mot quiz2Question(String l){
+        Mot m ;
+        String sql = "SELECT * FROM liste inner join dictionnaire on liste.id_mot=dictionnaire.id where nom_list ="+"?"+"order by random() limit 1";
+        Cursor cursor = this.getReadableDatabase().rawQuery(sql, new String[]{l});
+        cursor.moveToFirst();
+        m =  new Mot(cursor.getInt(0), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8),cursor.getString(9));
+        cursor.close();
+        return m;
+    }
+
 
 }

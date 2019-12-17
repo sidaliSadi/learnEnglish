@@ -16,15 +16,22 @@
         >
 
     </item>
+    <item
+        android:id="@+id/quiz2"
+        android:title="Quiz1"
+        android:icon="@drawable/quiz"
+        >
+
+    </item>
 
     <item
         android:id="@+id/quiz"
-        android:title="Quizz"
+        android:title="Quizz2"
         android:icon="@drawable/quiz"/>
     <item
         android:id="@+id/dicte"
         android:title="Dictee"
-        android:icon="@drawable/quiz"
+        android:icon="@drawable/dictee"
         >
 
     </item>
@@ -38,6 +45,7 @@
         >
 
     </item>
+
 
 
     <item

@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent i6 = new Intent(this, SuppressionActivity.class);
                 startActivity(i6);
                 break;
+            case R.id.dicte:
+                Intent i9 = new Intent(this, Dicte.class);
+                startActivity(i9);
+                break;
 
             case R.id.maList:
                 Intent i5 = new Intent(this,Listes.class);

@@ -11,6 +11,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,8 +26,9 @@ import java.util.List;
 public class SuppressionActivity extends AppCompatActivity {
     private ImageButton btn_recherche;
     private Button btn_suppComplet, btn_supPartiel;
+    AutoCompleteTextView e_mot;
+    ArrayAdapter<String> adapter;
     private TextView tv, tv_externe;
-    private EditText e_mot;
     private DataBaseManager db;
     private ImageView imgView;
     private Toolbar toolbar;
@@ -165,6 +168,9 @@ public class SuppressionActivity extends AppCompatActivity {
                 }
             }
         });
+        List<String> listes = db.Mots();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listes);
+        e_mot.setAdapter(adapter);
 
     }
 

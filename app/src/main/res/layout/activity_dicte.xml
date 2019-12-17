@@ -1,45 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".Dicte">
-
-    <Button
-        android:id="@+id/btnVerifier"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Verifier"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        android:orientation="horizontal"
 
-    <ImageButton
-        android:id="@+id/btnSon"
+        android:layout_marginTop="50dp">
+        <ImageButton
+            android:id="@+id/btnSon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/btnVerifier"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.229"
+            app:srcCompat="@drawable/haut_parleur" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.681"
-        app:layout_constraintStart_toEndOf="@+id/btnVerifier"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605"
-        app:srcCompat="@drawable/haut_parleur" />
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
 
-    <EditText
-        android:id="@+id/editEeponse"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/reponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="reponse...."
+            android:inputType="textPersonName"
+            android:layout_weight="1"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <LinearLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="reponse...."
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323"
-        tools:layout_editor_absoluteX="78dp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+        <Button
+            android:id="@+id/btnVoirReponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voir reponse"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="340dp" />
+        <TextView
+            android:id="@+id/tvvv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#990000"
+            android:textSize="20dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnRegenerer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regenerer"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        >
+        <Button
+            android:id="@+id/btnVerifier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verifier" />
+    </LinearLayout>
+
+
+</LinearLayout>

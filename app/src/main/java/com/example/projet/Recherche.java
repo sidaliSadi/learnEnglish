@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,7 +26,6 @@ import java.util.Locale;
 
 public class Recherche extends AppCompatActivity {
     private ImageButton btn_recherche;
-    private EditText e_mot;
     private ImageView img;
     private DataBaseManager db;
     private TextView tv;
@@ -33,6 +34,8 @@ public class Recherche extends AppCompatActivity {
     private ImageButton imgBtn;
     private TextToSpeech t1;
     private Toolbar toolbar;
+    AutoCompleteTextView tvRecherche;
+    ArrayAdapter<String> adapter;
     @Override
 
 
@@ -48,8 +51,9 @@ public class Recherche extends AppCompatActivity {
         btn_recherche = findViewById(R.id.btn_recherche);
         imgBtn = findViewById(R.id.imageButton);
 
-        e_mot = findViewById(R.id.recherche);
+        tvRecherche = findViewById(R.id.recherche);
         db = new DataBaseManager(this);
+
         tv = findViewById(R.id.tv_mot);
         img = findViewById(R.id.imgVieww);
         btn_externe = findViewById(R.id.btn_externe);
@@ -57,7 +61,7 @@ public class Recherche extends AppCompatActivity {
         btn_recherche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String m = e_mot.getText()+"";
+                String m = tvRecherche.getText()+"";
                 if ( m != "" ){
                     //si le mot nest pas vide
                     liste = db.Mots(m);
@@ -123,5 +127,8 @@ public class Recherche extends AppCompatActivity {
                 }
             }
         });
+        List<String> listes = db.Mots();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listes);
+        tvRecherche.setAdapter(adapter);
     }
 }

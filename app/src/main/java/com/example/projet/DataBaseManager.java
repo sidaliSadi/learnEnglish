@@ -205,5 +205,30 @@ public class DataBaseManager extends SQLiteOpenHelper {
         return mots;
     }
 
+    //selectionner tout les mootttsss pour autocompletion
+
+    public List<String> Mots(){
+        List<String> mots = new ArrayList<>();
+        String sql = "SELECT mot FROM dictionnaire";
+        Cursor cursor = this.getReadableDatabase().rawQuery(sql, null);
+        cursor.moveToFirst();
+        while (! cursor.isAfterLast()){
+            mots.add(cursor.getString(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return mots;
+    }
+
+    //au hasard Question dicte
+    public Mot dicteQuestion(){
+        Mot m ;
+        String sql = "SELECT * FROM dictionnaire order by random() limit 1";
+        Cursor cursor = this.getReadableDatabase().rawQuery(sql, null);
+        cursor.moveToFirst();
+        m = new Mot(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),cursor.getString(5));
+        cursor.close();
+        return m;
+    }
 
 }

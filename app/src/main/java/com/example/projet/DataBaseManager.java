@@ -137,7 +137,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         String sql = "SELECT * FROM liste inner join dictionnaire on liste.id_mot=dictionnaire.id where nom_list = "+"?";
         Cursor cursor = this.getReadableDatabase().rawQuery(sql, new String[]{nom});
         cursor.moveToFirst();
-        while (! cursor.isAfterLast()){
+        while (!cursor.isAfterLast()){
             Mot m = new Mot(cursor.getInt(0), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8),cursor.getString(9));
             mots.add(m);
             cursor.moveToNext();

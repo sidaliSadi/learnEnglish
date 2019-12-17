@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VocabularyActivity extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class VocabularyActivity extends AppCompatActivity {
     private Button btn_creer;
     private EditText enom;
     private Toolbar toolbar;
+    SparseBooleanArray sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +45,26 @@ public class VocabularyActivity extends AppCompatActivity {
         btn_creer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                SparseBooleanArray sp = listeView.getCheckedItemPositions();
+                //Mot selectedWords[] = new Mot[sp.size()];
+                ArrayList<Mot> selectedWords = new ArrayList<>();
+                sp = listeView.getCheckedItemPositions();
+
+                for(int i = 0; i< sp.size(); i++){
+                    if ( sp.valueAt(i) ){
+                        selectedWords.add( (Mot) listeView.getItemAtPosition(sp.keyAt(i)));
+                    }
+                }
                 if ( sp.size() == 0 ){
                     Toast.makeText(VocabularyActivity.this, "Veuillez selectionnez des mots s'ils vous plait", Toast.LENGTH_SHORT).show();
                 }else{
-                    Mot selectedWords[] = new Mot[sp.size()];
 
-                    for(int i=0;i<sp.size();i++){
-                        if(sp.valueAt(i)== true){
-                            selectedWords[i] = (Mot) listeView.getItemAtPosition(i);
-                        }
-                    }
+
+
+
                     //maintenant on ajoute dans la table liste
-                    if ( db.verifier( selectedWords[0].getCategorie() ) ){
-                        for (int i = 0; i < selectedWords.length ; i++) {
-                            db.insertToList(selectedWords[i].getId(),enom.getText()+"", selectedWords[i].getCategorie());
+                    if ( db.verifier( selectedWords.get(0).getCategorie() ) ){
+                        for (int i = 0; i < selectedWords.size() ; i++) {
+                            db.insertToList(selectedWords.get(i).getId(),enom.getText()+"", selectedWords.get(i).getCategorie());
                         }
                         Toast.makeText(VocabularyActivity.this, "creation réussi", Toast.LENGTH_SHORT).show();
 
@@ -66,8 +73,10 @@ public class VocabularyActivity extends AppCompatActivity {
                         Toast.makeText(VocabularyActivity.this, "creation refusée ! une liste est déja ", Toast.LENGTH_SHORT).show();
                     }
                 }
+                sp.clear();
             }
         });
+
         //recuperer litem
         Intent intent = getIntent();
         String categorie = intent.getStringExtra("categorie");
@@ -82,6 +91,7 @@ public class VocabularyActivity extends AppCompatActivity {
         for (int i = 0; i < listMots.size() ; i++) {
             mots[i] = listMots.get(i);
         }
+
         listeView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         final ArrayAdapter<Mot> adapter = new ArrayAdapter<Mot>(this, android.R.layout.simple_list_item_checked, mots);
